@@ -17,13 +17,19 @@
     (let ((default-directory fnm-test/sandbox-path)
           (fnm-dir "/path/to/fnm/")
           (process-environment
-           '("FNM_BIN=/path/to/fnm/v0.0.1/bin"
-             "FNM_PATH=/path/to/fnm/v0.0.1/lib/node"
-             "PATH=/path/to/foo/bin/:/path/to/fnm/v0.0.1/bin/:/path/to/bar/bin/")))
+           '("FNM_BIN=/path/to/fnm/node-versions/v0.0.1/installation/bin"
+             "FNM_PATH=/path/to/fnm/node-versions/v0.0.1/installation/lib/node"
+             "PATH=/path/to/foo/bin/:/path/to/fnm/node-versions/v0.0.1/installation/bin/:/path/to/bar/bin/")))
       ,@body)))
 
 (defun write-fnmrc (version)
   (f-write version 'utf-8 (f-expand ".fnmrc" fnm-test/sandbox-path)))
+
+(defun write-node-version (version)
+  (f-write version 'utf-8 (f-expand ".node-version" fnm-test/sandbox-path)))
+
+(defun write-nvmrc (version)
+  (f-write version 'utf-8 (f-expand ".nvmrc" fnm-test/sandbox-path)))
 
 (require 'ert)
 (require 'el-mock)
