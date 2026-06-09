@@ -1,4 +1,4 @@
-;;; fnm.el --- Manage Node versions within Emacs using fnm
+;;; fnm.el --- Manage Node versions within Emacs using fnm -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2026 John Buckley
 
